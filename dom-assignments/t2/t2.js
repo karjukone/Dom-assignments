@@ -27,4 +27,28 @@ const todoList = [
   },
 ];
 
-// add your code here
+const ul = document.querySelector("ul");
+
+todoList.forEach(e => {
+  console.log(e);
+
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.id = `todo-${e.id}`;
+  input.checked = e.completed;
+
+  const label = document.createElement("label");
+  label.htmlFor = `todo-${e.id}`;
+  label.innerText = e.task;
+
+  label.addEventListener("click", () => {
+    alert("clicked me!");
+  })
+
+  const li = document.createElement("li");
+  li.appendChild(input);
+  li.appendChild(label);
+
+  ul.appendChild(li);
+
+})
